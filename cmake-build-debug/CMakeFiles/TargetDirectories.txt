@@ -1,0 +1,3 @@
+/Users/michal/CLionProjects/pRow/cmake-build-debug/CMakeFiles/pRow.dir
+/Users/michal/CLionProjects/pRow/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/michal/CLionProjects/pRow/cmake-build-debug/CMakeFiles/rebuild_cache.dir
