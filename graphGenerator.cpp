@@ -54,7 +54,13 @@ void saveGraphToFile(const Graph& graph, const char* filename) {
 }
 
 int generate() {
-    std::vector<int> graphSizes = {10, 20, 30, 40, 50}; // Rozmiary grafów do wygenerowania
+    std::vector<int> graphSizes = {
+            10, 25, 50, 75, 100,
+            125, 150, 175, 200,
+            225, 250, 275, 300,
+            325, 350, 375, 400,
+            425, 450, 475, 500
+    }; // Rozmiary grafów do wygenerowania
     int density = 50;
 
     for (int size : graphSizes) {
