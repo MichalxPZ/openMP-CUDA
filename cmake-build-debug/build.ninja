@@ -51,21 +51,7 @@ build cmake_object_order_depends_target_pRow: phony || CMakeFiles/pRow.dir
 
 build CMakeFiles/pRow.dir/main.cpp.o: CXX_COMPILER__pRow_Debug /Users/michal/CLionProjects/pRow/main.cpp || cmake_object_order_depends_target_pRow
   DEP_FILE = CMakeFiles/pRow.dir/main.cpp.o.d
-  FLAGS = -g -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk -mmacosx-version-min=13.1 -fcolor-diagnostics -std=gnu++17
-  INCLUDES = -isystem /usr/local/include -isystem /usr/local/include/json-c
-  OBJECT_DIR = CMakeFiles/pRow.dir
-  OBJECT_FILE_DIR = CMakeFiles/pRow.dir
-
-build CMakeFiles/pRow.dir/dijkstra.cpp.o: CXX_COMPILER__pRow_Debug /Users/michal/CLionProjects/pRow/dijkstra.cpp || cmake_object_order_depends_target_pRow
-  DEP_FILE = CMakeFiles/pRow.dir/dijkstra.cpp.o.d
-  FLAGS = -g -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk -mmacosx-version-min=13.1 -fcolor-diagnostics -std=gnu++17
-  INCLUDES = -isystem /usr/local/include -isystem /usr/local/include/json-c
-  OBJECT_DIR = CMakeFiles/pRow.dir
-  OBJECT_FILE_DIR = CMakeFiles/pRow.dir
-
-build CMakeFiles/pRow.dir/graphGenerator.cpp.o: CXX_COMPILER__pRow_Debug /Users/michal/CLionProjects/pRow/graphGenerator.cpp || cmake_object_order_depends_target_pRow
-  DEP_FILE = CMakeFiles/pRow.dir/graphGenerator.cpp.o.d
-  FLAGS = -g -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk -mmacosx-version-min=13.1 -fcolor-diagnostics -std=gnu++17
+  FLAGS = -g -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk -mmacosx-version-min=13.1 -fcolor-diagnostics -std=gnu++11
   INCLUDES = -isystem /usr/local/include -isystem /usr/local/include/json-c
   OBJECT_DIR = CMakeFiles/pRow.dir
   OBJECT_FILE_DIR = CMakeFiles/pRow.dir
@@ -78,7 +64,7 @@ build CMakeFiles/pRow.dir/graphGenerator.cpp.o: CXX_COMPILER__pRow_Debug /Users/
 #############################################
 # Link the executable pRow
 
-build pRow: CXX_EXECUTABLE_LINKER__pRow_Debug CMakeFiles/pRow.dir/main.cpp.o CMakeFiles/pRow.dir/dijkstra.cpp.o CMakeFiles/pRow.dir/graphGenerator.cpp.o | /usr/local/lib/libjson-c.5.2.0.dylib
+build pRow: CXX_EXECUTABLE_LINKER__pRow_Debug CMakeFiles/pRow.dir/main.cpp.o | /usr/local/lib/libjson-c.5.2.0.dylib
   FLAGS = -g -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk -mmacosx-version-min=13.1
   LINK_LIBRARIES = -Wl,-rpath,/usr/local/lib  /usr/local/lib/libjson-c.5.2.0.dylib  -lm
   OBJECT_DIR = CMakeFiles/pRow.dir
