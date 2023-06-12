@@ -21,5 +21,5 @@ def visualizeGraph(filename):
     plt.title('Graph Visualization')
     plt.show()
 
-filename = 'cmake-build-debug/graph.json'
+filename = 'cmake-build-debug/graph_25.json'
 visualizeGraph(filename)
