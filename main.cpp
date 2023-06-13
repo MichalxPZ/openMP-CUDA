@@ -160,7 +160,7 @@ void dijkstraOpenMP(const Edge* edges, int numEdges, int numVertices, int source
 
 int main(int argc, char** argv){
     srand(time(nullptr));
-    for (int vertices = 1000; vertices <= 15000; vertices += 1000) {
+    for (int vertices = 100; vertices <= 500; vertices += 25) {
         int maxEdges = (vertices * (vertices - 1)) / 2;
         int numEdges = (50 * maxEdges) / 100;
         Edge* edges = generateRandomGraph(vertices, 50, maxEdges, numEdges);

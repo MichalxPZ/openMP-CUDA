@@ -1,27 +1,30 @@
 import pandas as pd
 
-results = [
-    (1000, "Serial", 848538),
-    (1000, "OPENMP", 335997),
-    (2000, "Serial", 6824267),
-    (2000, "OPENMP", 3626471),
-    (3000, "Serial", 24332369),
-    (3000, "OPENMP", 14290351),
-    (4000, "Serial", 55994073),
-    (4000, "OPENMP", 33425967),
-    (5000, "Serial", 110926232),
-    (5000, "OPENMP", 67367441),
-    (6000, "Serial", 183704272),
-    (6000, "OPENMP", 121806870),
-    (7000, "Serial", 328801811),
-    (7000, "OPENMP", 179628613),
-    (8000, "Serial", 443322364),
-    (8000, "OPENMP", 269045048),
-    (9000, "Serial", 625262705),
-    (9000, "OPENMP", 359967367),
-]
+data = {
+    'Size': [25, 50, 75, 100, 125, 150, 175, 200, 225, 250, 275, 300, 325, 350, 375, 400, 425, 450, 475, 500],
+    'CUDA': [102604, 3246, 10168, 23830, 45289, 112962, 166959, 158138, 223841, 307171, 407747, 530189, 672121, 839438, 1032150, 1252047, 1501122, 1781083, 2093780, 2440467],
+    'Serial': [1006, 1010, 3001, 4009, 6001, 8994, 11989, 16002, 19996, 25991, 32996, 39999, 49000, 56998, 68001, 78987, 114004, 1006, 1006, 1006],
+    'OPENMP': [27000, 24999, 27990, 27993, 26991, 21003, 25001, 28006, 32991, 36999, 64998, 65000, 73982, 80000, 100977, 109002, 90014, 100977, 109002, 90014]
+}
 
-df = pd.DataFrame(results, columns=["Size", "Type", "Time (microseconds)"])
-df_pivot = df.pivot(index="Size", columns="Type", values="Time (microseconds)")
 
-print(df_pivot)
+df = pd.DataFrame(data)
+print(df)
+
+import matplotlib.pyplot as plt
+
+# Utwórz wykres
+plt.plot(df['Size'], df['CUDA'], marker='o', label='CUDA')
+plt.plot(df['Size'], df['Serial'], marker='o', label='Serial')
+plt.plot(df['Size'], df['OPENMP'], marker='o', label='OPENMP')
+
+# Dodaj tytuł i etykiety osi
+plt.title('Execution Time Comparison')
+plt.xlabel('Size')
+plt.ylabel('Execution Time (microseconds)')
+
+# Dodaj legendę
+plt.legend()
+
+# Wyświetl wykres
+plt.show()
