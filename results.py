@@ -7,8 +7,10 @@ data = {
     'OPENMP': [27000, 24999, 27990, 27993, 26991, 21003, 25001, 28006, 32991, 36999, 64998, 65000, 73982, 80000, 100977, 109002, 90014, 100977, 109002, 90014]
 }
 
-
 df = pd.DataFrame(data)
+df['Serial'] = df['Serial'] * df['Size']
+df['OPENMP'] = df['OPENMP'] * df['Size']
+
 print(df)
 
 import matplotlib.pyplot as plt
@@ -27,4 +29,25 @@ plt.ylabel('Execution Time (microseconds)')
 plt.legend()
 
 # Wyświetl wykres
+plt.show()
+
+df['OpenMP Acceleration'] = df['Serial'] / df['OPENMP']
+
+# Obliczenie przyspieszenia dla CUDA
+df['CUDA Acceleration'] = df['Serial'] / df['CUDA']
+
+# Wykres przyspieszenia dla OpenMP
+plt.plot(df['Size'], df['OpenMP Acceleration'], label='OpenMP')
+plt.xlabel('Size')
+plt.ylabel('Acceleration')
+plt.title('OpenMP Acceleration')
+plt.legend()
+plt.show()
+
+# Wykres przyspieszenia dla CUDA
+plt.plot(df['Size'], df['CUDA Acceleration'], label='CUDA')
+plt.xlabel('Size')
+plt.ylabel('Acceleration')
+plt.title('CUDA Acceleration')
+plt.legend()
 plt.show()
