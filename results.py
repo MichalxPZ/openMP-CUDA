@@ -39,34 +39,19 @@ plt.grid(True)
 plt.show()
 
 
-results = [
-    (1000, "Serial", 848538),
-    (1000, "OPENMP", 335997),
-    (2000, "Serial", 6824267),
-    (2000, "OPENMP", 3626471),
-    (3000, "Serial", 24332369),
-    (3000, "OPENMP", 14290351),
-    (4000, "Serial", 55994073),
-    (4000, "OPENMP", 33425967),
-    (5000, "Serial", 110926232),
-    (5000, "OPENMP", 67367441),
-    (6000, "Serial", 183704272),
-    (6000, "OPENMP", 121806870),
-    (7000, "Serial", 328801811),
-    (7000, "OPENMP", 179628613),
-    (8000, "Serial", 443322364),
-    (8000, "OPENMP", 269045048),
-    (9000, "Serial", 625262705),
-    (9000, "OPENMP", 359967367)
-]
+data = {
+    'Vertices': [1000, 2000, 3000, 4000, 5000, 6000, 7000, 8000, 9000],
+    'Serial': [848538, 6824267, 24332369, 55994073, 110926232, 183704272, 328801811, 443322364, 625262705],
+    'OPENMP': [335997, 3626471, 14290351, 33425967, 67367441, 121806870, 179628613, 269045048, 359967367]
+}
 
-df = pd.DataFrame(results, columns=['Vertices', 'Method', 'Time'])
-df['Time'] /= 1000  # Convert to milliseconds
+df = pd.DataFrame(data)
+df['Serial'] /= 1000  # Convert to milliseconds
+df['OPENMP'] /= 1000  # Convert to milliseconds
 
 plt.figure(figsize=(10, 6))
-for method in df['Method'].unique():
-    df_method = df[df['Method'] == method]
-    plt.plot(df_method['Vertices'], df_method['Time'], marker='o', label=method)
+plt.plot(df['Vertices'], df['Serial'], marker='o', label='Serial')
+plt.plot(df['Vertices'], df['OPENMP'], marker='o', label='OPENMP')
 
 plt.title('Execution Time Comparison: Serial vs OPENMP')
 plt.xlabel('Vertices')
@@ -75,8 +60,8 @@ plt.legend()
 plt.grid(True)
 plt.show()
 
-serial_times = df[df['Method'] == 'Serial']['Time']
-df['Speedup'] = serial_times.values / df['Time'].values
+serial_times = df['Serial']
+df['Speedup'] = serial_times / df['OPENMP']
 
 # Print DataFrame
 print(df)
